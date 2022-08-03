@@ -1,11 +1,13 @@
 import React, { memo } from 'react';
-import { string, number } from 'prop-types';
+import { string, number, object } from 'prop-types';
 import { trackGoogleEvent } from '../../analytics/google';
 import { runtimeConfig } from '../../config';
 import { trackUmamiEvent } from '../../analytics/umami';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { trackMatomoEvent } from '../../analytics/matomo';
 
 function Button(props) {
-  const { name, href, displayName, logo } = props;
+  const { name, href, displayName, logo, styles, alt, icon } = props;
 
   const handleClick = () => {
     const eventName = `${name}-button`;
@@ -16,20 +18,27 @@ function Button(props) {
     if (runtimeConfig?.UMAMI_WEBSITE_ID && runtimeConfig?.UMAMI_APP_URL) {
       trackUmamiEvent(eventName);
     }
+    if (runtimeConfig?.MATOMO_SITE_ID && runtimeConfig?.MATOMO_URL) {
+      trackMatomoEvent(eventName);
+    }
   };
 
   return (
     <>
       <a
-        className={`button button-${name}`}
+        className={styles ? 'button' : `button button-${name}`}
         href={href}
-        target="_blank"
+        target={runtimeConfig?.BUTTON_TARGET || '_blank'}
         rel="noopener noreferrer"
         onClick={handleClick}
+        style={styles ? styles : undefined}
+        title={alt || displayName}
       >
         {logo && (
           <img className="icon" src={logo} alt={`${displayName} logo`} />
         )}
+
+        {icon && <FontAwesomeIcon className="icon" icon={icon.split(' ')} />}
 
         {displayName}
       </a>
@@ -41,9 +50,12 @@ export default memo(Button);
 
 Button.propType = {
   src: string.isRequired,
-  srcSet: string,
   alt: string.isRequired,
-  href: string,
-  name: string,
-  order: number,
+  displayName: string.isRequired,
+  href: string.isRequired,
+  name: string.isRequired,
+  order: number.isRequired,
+  logo: string,
+  icon: string,
+  styles: object,
 };

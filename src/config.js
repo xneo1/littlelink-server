@@ -7,9 +7,12 @@ export const runtimeConfig =
         META_TITLE: window?.env?.META_TITLE,
         META_DESCRIPTION: window?.env?.META_DESCRIPTION,
         META_AUTHOR: window?.env?.META_AUTHOR,
+        META_KEYWORDS: window?.env?.META_KEYWORDS,
         META_INDEX_STATUS: window?.env?.META_INDEX_STATUS,
         LANG: window?.env?.LANG,
         GA_TRACKING_ID: window?.env?.GA_TRACKING_ID,
+        UMAMI_WEBSITE_ID: window?.env?.UMAMI_WEBSITE_ID,
+        SKIP_HEALTH_CHECK_LOGS: window?.env?.SKIP_HEALTH_CHECK_LOGS,
         THEME: window?.env?.THEME,
         FAVICON_URL: window?.env?.FAVICON_URL,
         AVATAR_URL: window?.env?.AVATAR_URL,
@@ -57,11 +60,65 @@ export const runtimeConfig =
         GITLAB: window?.env?.GITLAB,
         PATREON: window?.env?.PATREON,
         DEVTO: window?.env?.DEVTO,
-        UMAMI_WEBSITE_ID: window?.env?.UMAMI_WEBSITE_ID,
         UMAMI_APP_URL: window?.env?.UMAMI_APP_URL,
         BUTTON_ORDER: window?.env?.BUTTON_ORDER,
         PAYPAL: window?.env?.PAYPAL,
         SLACK: window?.env?.SLACK,
+        CUSTOM_BUTTON_TEXT: window?.env?.CUSTOM_BUTTON_TEXT,
+        CUSTOM_BUTTON_URL: window?.env?.CUSTOM_BUTTON_URL,
+        CUSTOM_BUTTON_COLOR: window?.env?.CUSTOM_BUTTON_COLOR,
+        CUSTOM_BUTTON_TEXT_COLOR: window?.env?.CUSTOM_BUTTON_TEXT_COLOR,
+        CUSTOM_BUTTON_ALT_TEXT: window?.env?.CUSTOM_BUTTON_ALT_TEXT,
+        CUSTOM_BUTTON_NAME: window?.env?.CUSTOM_BUTTON_NAME,
+        CUSTOM_BUTTON_ICON: window?.env?.CUSTOM_BUTTON_ICON,
+        STACKOVERFLOW: window?.env?.STACKOVERFLOW,
+        LASTFM: window?.env?.LASTFM,
+        GITEA: window?.env?.GITEA,
+        POLYWORK: window?.env?.POLYWORK,
+        SIGNAL: window?.env?.SIGNAL,
+        UNTAPPD: window?.env?.UNTAPPD,
+        BUTTON_TARGET: window?.env?.BUTTON_TARGET,
+        INSTANTGAMING: window?.env?.INSTANTGAMING,
+        OG_SITE_NAME: window?.env?.OG_SITE_NAME,
+        OG_TITLE: window?.env?.OG_TITLE,
+        OG_DESCRIPTION: window?.env?.OG_DESCRIPTION,
+        OG_URL: window?.env?.OG_URL,
+        OG_IMAGE: window?.env?.OG_IMAGE,
+        OG_IMAGE_WIDTH: window?.env?.OG_IMAGE_WIDTH,
+        OG_IMAGE_HEIGHT: window?.env?.OG_IMAGE_HEIGHT,
+        TWITTER_CARD: window?.env?.TWITTER_CARD,
+        TWITTER_IMAGE: window?.env?.TWITTER_IMAGE,
+        TWITTER_SITE: window?.env?.TWITTER_SITE,
+        TWITTER_CREATOR: window?.env?.TWITTER_CREATOR,
+        GHOST: window?.env?.GHOST,
+        TRAKT: window?.env?.TRAKT,
+        CASHAPP: window?.env?.CASHAPP,
+        TEESPRING: window?.env?.TEESPRING,
+        XING: window?.env?.XING,
+        KEYBASE: window?.env?.KEYBASE,
+        ONLYFANS: window?.env?.ONLYFANS,
+        SESSION: window?.env?.SESSION,
+        THREEMA: window?.env?.THREEMA,
+        STREAMLABS: window?.env?.STREAMLABS,
+        PRIVATEBIN: window?.env?.PRIVATEBIN,
+        AMAZON_AFFILIATE: window?.env?.AMAZON_AFFILIATE,
+        AMAZON_WISHLIST: window?.env?.AMAZON_WISHLIST,
+        APPLE_MUSIC: window?.env?.APPLE_MUSIC,
+        STATUS: window?.env?.STATUS,
+        MATRIX: window?.env?.MATRIX,
+        ANILIST: window?.env?.ANILIST,
+        GITBUCKET: window?.env?.GITBUCKET,
+        SHAZAM: window?.env?.SHAZAM,
+        FLICKR: window?.env?.FLICKR,
+        TPDB: window?.env?.TPDB,
+        OSU: window?.env?.OSU,
+        LINE: window?.env?.LINE,
+        KAKAOTALK: window?.env?.KAKAOTALK,
+        DESIGNBYHUMANS: window?.env?.DESIGNBYHUMANS,
+        DOCKERHUB: window?.env?.DOCKERHUB,
+        MATOMO_URL: window?.env?.MATOMO_URL,
+        MATOMO_SITE_ID: window?.env?.MATOMO_SITE_ID,
+        SHARE: window?.env?.SHARE,
       }
     : {
         // server
@@ -74,6 +131,9 @@ export const runtimeConfig =
         META_AUTHOR: nodeIsProduction
           ? process.env.META_AUTHOR
           : process.env.RAZZLE_META_AUTHOR,
+        META_KEYWORDS: nodeIsProduction
+          ? process.env.META_KEYWORDS
+          : process.env.RAZZLE_META_KEYWORDS,
         META_INDEX_STATUS: nodeIsProduction
           ? process.env.META_INDEX_STATUS
           : process.env.RAZZLE_META_INDEX_STATUS,
@@ -81,6 +141,12 @@ export const runtimeConfig =
         GA_TRACKING_ID: nodeIsProduction
           ? process.env.GA_TRACKING_ID
           : process.env.RAZZLE_GA_TRACKING_ID,
+        UMAMI_WEBSITE_ID: nodeIsProduction
+          ? process.env.UMAMI_WEBSITE_ID
+          : process.env.RAZZLE_UMAMI_WEBSITE_ID,
+        SKIP_HEALTH_CHECK_LOGS: nodeIsProduction
+          ? process.env.SKIP_HEALTH_CHECK_LOGS
+          : process.env.RAZZLE_SKIP_HEALTH_CHECK_LOGS,
         THEME: nodeIsProduction ? process.env.THEME : process.env.RAZZLE_THEME,
         FAVICON_URL: nodeIsProduction
           ? process.env.FAVICON_URL
@@ -202,9 +268,6 @@ export const runtimeConfig =
           ? process.env.PATREON
           : process.env.RAZZLE_PATREON,
         DEVTO: nodeIsProduction ? process.env.DEVTO : process.env.RAZZLE_DEVTO,
-        UMAMI_WEBSITE_ID: nodeIsProduction
-          ? process.env.UMAMI_WEBSITE_ID
-          : process.env.RAZZLE_UMAMI_WEBSITE_ID,
         UMAMI_APP_URL: nodeIsProduction
           ? process.env.UMAMI_APP_URL
           : process.env.RAZZLE_UMAMI_APP_URL,
@@ -215,4 +278,153 @@ export const runtimeConfig =
           ? process.env.PAYPAL
           : process.env.RAZZLE_PAYPAL,
         SLACK: nodeIsProduction ? process.env.SLACK : process.env.RAZZLE_SLACK,
+        CUSTOM_BUTTON_TEXT: nodeIsProduction
+          ? process.env.CUSTOM_BUTTON_TEXT
+          : process.env.RAZZLE_CUSTOM_BUTTON_TEXT,
+        CUSTOM_BUTTON_URL: nodeIsProduction
+          ? process.env.CUSTOM_BUTTON_URL
+          : process.env.RAZZLE_CUSTOM_BUTTON_URL,
+        CUSTOM_BUTTON_COLOR: nodeIsProduction
+          ? process.env.CUSTOM_BUTTON_COLOR
+          : process.env.RAZZLE_CUSTOM_BUTTON_COLOR,
+        CUSTOM_BUTTON_TEXT_COLOR: nodeIsProduction
+          ? process.env.CUSTOM_BUTTON_TEXT_COLOR
+          : process.env.RAZZLE_CUSTOM_BUTTON_TEXT_COLOR,
+        CUSTOM_BUTTON_ALT_TEXT: nodeIsProduction
+          ? process.env.CUSTOM_BUTTON_ALT_TEXT
+          : process.env.RAZZLE_CUSTOM_BUTTON_ALT_TEXT,
+        CUSTOM_BUTTON_NAME: nodeIsProduction
+          ? process.env.CUSTOM_BUTTON_NAME
+          : process.env.RAZZLE_CUSTOM_BUTTON_NAME,
+        CUSTOM_BUTTON_ICON: nodeIsProduction
+          ? process.env.CUSTOM_BUTTON_ICON
+          : process.env.RAZZLE_CUSTOM_BUTTON_ICON,
+        STACKOVERFLOW: nodeIsProduction
+          ? process.env.STACKOVERFLOW
+          : process.env.RAZZLE_STACKOVERFLOW,
+        LASTFM: nodeIsProduction
+          ? process.env.LASTFM
+          : process.env.RAZZLE_LASTFM,
+        GITEA: nodeIsProduction ? process.env.GITEA : process.env.RAZZLE_GITEA,
+        POLYWORK: nodeIsProduction
+          ? process.env.POLYWORK
+          : process.env.RAZZLE_POLYWORK,
+        SIGNAL: nodeIsProduction
+          ? process.env.SIGNAL
+          : process.env.RAZZLE_SIGNAL,
+        UNTAPPD: nodeIsProduction
+          ? process.env.UNTAPPD
+          : process.env.RAZZLE_UNTAPPD,
+        BUTTON_TARGET: nodeIsProduction
+          ? process.env.BUTTON_TARGET
+          : process.env.RAZZLE_BUTTON_TARGET,
+        INSTANTGAMING: nodeIsProduction
+          ? process.env.INSTANTGAMING
+          : process.env.RAZZLE_INSTANTGAMING,
+        OG_SITE_NAME: nodeIsProduction
+          ? process.env.OG_SITE_NAME
+          : process.env.RAZZLE_OG_SITE_NAME,
+        OG_TITLE: nodeIsProduction
+          ? process.env.OG_TITLE
+          : process.env.RAZZLE_OG_TITLE,
+        OG_DESCRIPTION: nodeIsProduction
+          ? process.env.OG_DESCRIPTION
+          : process.env.RAZZLE_OG_DESCRIPTION,
+        OG_URL: nodeIsProduction
+          ? process.env.OG_URL
+          : process.env.RAZZLE_OG_URL,
+        OG_IMAGE: nodeIsProduction
+          ? process.env.OG_IMAGE
+          : process.env.RAZZLE_OG_IMAGE,
+        OG_IMAGE_WIDTH: nodeIsProduction
+          ? process.env.OG_IMAGE_WIDTH
+          : process.env.RAZZLE_OG_IMAGE_WIDTH,
+        OG_IMAGE_HEIGHT: nodeIsProduction
+          ? process.env.OG_IMAGE_HEIGHT
+          : process.env.RAZZLE_OG_IMAGE_HEIGHT,
+        TWITTER_CARD: nodeIsProduction
+          ? process.env.TWITTER_CARD
+          : process.env.RAZZLE_TWITTER_CARD,
+        TWITTER_IMAGE: nodeIsProduction
+          ? process.env.TWITTER_IMAGE
+          : process.env.RAZZLE_TWITTER_IMAGE,
+        TWITTER_SITE: nodeIsProduction
+          ? process.env.TWITTER_SITE
+          : process.env.RAZZLE_TWITTER_SITE,
+        TWITTER_CREATOR: nodeIsProduction
+          ? process.env.TWITTER_CREATOR
+          : process.env.RAZZLE_TWITTER_CREATOR,
+        GHOST: nodeIsProduction ? process.env.GHOST : process.env.RAZZLE_GHOST,
+        TRAKT: nodeIsProduction ? process.env.TRAKT : process.env.RAZZLE_TRAKT,
+        CASHAPP: nodeIsProduction
+          ? process.env.CASHAPP
+          : process.env.RAZZLE_CASHAPP,
+        TEESPRING: nodeIsProduction
+          ? process.env.TEESPRING
+          : process.env.RAZZLE_TEESPRING,
+        XING: nodeIsProduction ? process.env.XING : process.env.RAZZLE_XING,
+        KEYBASE: nodeIsProduction
+          ? process.env.KEYBASE
+          : process.env.RAZZLE_KEYBASE,
+        ONLYFANS: nodeIsProduction
+          ? process.env.ONLYFANS
+          : process.env.RAZZLE_ONLYFANS,
+        SESSION: nodeIsProduction
+          ? process.env.SESSION
+          : process.env.RAZZLE_SESSION,
+        THREEMA: nodeIsProduction
+          ? process.env.THREEMA
+          : process.env.RAZZLE_THREEMA,
+        STREAMLABS: nodeIsProduction
+          ? process.env.STREAMLABS
+          : process.env.RAZZLE_STREAMLABS,
+        PRIVATEBIN: nodeIsProduction
+          ? process.env.PRIVATEBIN
+          : process.env.RAZZLE_PRIVATEBIN,
+        AMAZON_AFFILIATE: nodeIsProduction
+          ? process.env.AMAZON_AFFILIATE
+          : process.env.RAZZLE_AMAZON_AFFILIATE,
+        AMAZON_WISHLIST: nodeIsProduction
+          ? process.env.AMAZON_WISHLIST
+          : process.env.RAZZLE_AMAZON_WISHLIST,
+        APPLE_MUSIC: nodeIsProduction
+          ? process.env.APPLE_MUSIC
+          : process.env.RAZZLE_APPLE_MUSIC,
+        STATUS: nodeIsProduction
+          ? process.env.STATUS
+          : process.env.RAZZLE_STATUS,
+        MATRIX: nodeIsProduction
+          ? process.env.MATRIX
+          : process.env.RAZZLE_MATRIX,
+        ANILIST: nodeIsProduction
+          ? process.env.ANILIST
+          : process.env.RAZZLE_ANILIST,
+        GITBUCKET: nodeIsProduction
+          ? process.env.GITBUCKET
+          : process.env.RAZZLE_GITBUCKET,
+        SHAZAM: nodeIsProduction
+          ? process.env.SHAZAM
+          : process.env.RAZZLE_SHAZAM,
+        FLICKR: nodeIsProduction
+          ? process.env.FLICKR
+          : process.env.RAZZLE_FLICKR,
+        TPDB: nodeIsProduction ? process.env.TPDB : process.env.RAZZLE_TPDB,
+        OSU: nodeIsProduction ? process.env.OSU : process.env.RAZZLE_OSU,
+        LINE: nodeIsProduction ? process.env.LINE : process.env.RAZZLE_LINE,
+        KAKAOTALK: nodeIsProduction
+          ? process.env.KAKAOTALK
+          : process.env.RAZZLE_KAKAOTALK,
+        DESIGNBYHUMANS: nodeIsProduction
+          ? process.env.DESIGNBYHUMANS
+          : process.env.RAZZLE_DESIGNBYHUMANS,
+        DOCKERHUB: nodeIsProduction
+          ? process.env.DOCKERHUB
+          : process.env.RAZZLE_DOCKERHUB,
+        MATOMO_URL: nodeIsProduction
+          ? process.env.MATOMO_URL
+          : process.env.RAZZLE_MATOMO_URL,
+        MATOMO_SITE_ID: nodeIsProduction
+          ? process.env.MATOMO_SITE_ID
+          : process.env.RAZZLE_MATOMO_SITE_ID,
+        SHARE: nodeIsProduction ? process.env.SHARE : process.env.RAZZLE_SHARE,
       };
