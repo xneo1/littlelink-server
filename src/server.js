@@ -30,8 +30,9 @@ const jsScriptTagsFromAssets = (assets, entrypoint, extra = '') => {
     : '';
 };
 
-const theme = runtimeConfig.THEME === 'Dark' ? 'dark.css' : 'light.css';
+const theme = runtimeConfig.THEME === 'Dark' ? 'dark' : 'light';
 
+const helmet = require('helmet');
 const server = express();
 
 if (process.env.NODE_ENV === 'production') {
@@ -55,7 +56,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 server
-  .disable('x-powered-by')
+  .use(helmet.hidePoweredBy())
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
   .get('/', (req, res) => {
     const context = {};
@@ -70,18 +71,32 @@ server
     } else {
       res.status(200).send(
         `<!doctype html>
-    <html lang="${runtimeConfig.LANG || 'en'}">
+    <html lang="${runtimeConfig.LANG || 'en'}" class="${theme}">
     <head>
+        <title>${runtimeConfig.META_TITLE || 'My Site'}</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta charset="utf-8" />
-        <title >${runtimeConfig.META_TITLE}</title>
-        <meta name="description" content="${runtimeConfig.META_DESCRIPTION}">
-        <meta name="author" content="${runtimeConfig.META_AUTHOR}">
-        <meta name="keywords" content="${runtimeConfig.META_KEYWORDS}">
+        <meta property="og:type" content="siteweb" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="${
           runtimeConfig.META_INDEX_STATUS || 'noindex'
         }">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        ${
+          runtimeConfig.META_AUTHOR
+            ? `<meta name="description" content="${runtimeConfig.META_DESCRIPTION}" />`
+            : ''
+        }
+        ${
+          runtimeConfig.META_AUTHOR
+            ? `<meta name="author" content="${runtimeConfig.META_AUTHOR}" />`
+            : ''
+        }
+        ${
+          runtimeConfig.META_KEYWORDS
+            ? `<meta name="keywords" content="${runtimeConfig.META_KEYWORDS}" />`
+            : ''
+        }
+
         ${
           runtimeConfig.OG_SITE_NAME
             ? `<meta property="og:site_name" content="${runtimeConfig.OG_SITE_NAME}" />`
@@ -102,13 +117,10 @@ server
             ? `<meta property="og:url" content="${runtimeConfig.OG_URL}" />`
             : ''
         }
-        <meta property="og:type" content="siteweb" />
         ${
           runtimeConfig.OG_IMAGE
-            ? `
-                <meta property="og:image" content="${runtimeConfig.OG_IMAGE}" />
-                <meta property="og:image:secure_url" content="${runtimeConfig.OG_IMAGE}" />
-            `
+            ? `<meta property="og:image" content="${runtimeConfig.OG_IMAGE}" />
+        <meta property="og:image:secure_url" content="${runtimeConfig.OG_IMAGE}" />`
             : ''
         }
         ${
@@ -119,6 +131,16 @@ server
         ${
           runtimeConfig.OG_IMAGE_HEIGHT
             ? `<meta property="og:image:height" content="${runtimeConfig.OG_IMAGE_HEIGHT}" />`
+            : ''
+        }
+        ${
+          runtimeConfig.TWITTER_TITLE
+            ? `<meta property="twitter:title" content="${runtimeConfig.TWITTER_TITLE}" />`
+            : ''
+        }
+        ${
+          runtimeConfig.TWITTER_DESCRIPTION
+            ? `<meta property="twitter:description" content="${runtimeConfig.TWITTER_DESCRIPTION}" />`
             : ''
         }
         ${
@@ -141,9 +163,15 @@ server
             ? `<meta property="twitter:creator" content="${runtimeConfig.TWITTER_CREATOR}" />`
             : ''
         }
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;display=swap" rel="stylesheet">
+        <link href="css/fonts.css" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/${theme}">
+        <link rel="stylesheet" href="css/${theme}.css">
+        ${
+          runtimeConfig.THEME_OS
+            ? `<link rel="stylesheet" href="css/os.css">`
+            : ''
+        }
+        <link rel="stylesheet" href="css/littlelink.css">
         <link rel="stylesheet" href="css/brands.css">
         ${cssLinksFromAssets(assets, 'client')}
         <link rel="icon" type="image/png" href="${runtimeConfig.FAVICON_URL}">
@@ -165,7 +193,11 @@ server
           runtimeConfig.UMAMI_WEBSITE_ID && runtimeConfig.UMAMI_APP_URL
             ? `
             <!-- Umami Analytics -->
-            <script async defer data-website-id="${runtimeConfig.UMAMI_WEBSITE_ID}" src="${runtimeConfig.UMAMI_APP_URL}/umami.js">
+            <script async defer data-website-id="${
+              runtimeConfig.UMAMI_WEBSITE_ID
+            }" src="${runtimeConfig.UMAMI_APP_URL}/${
+              runtimeConfig.UMAMI_SCRIPT_NAME || 'umami.js'
+            }">
             </script>`
             : ''
         }
@@ -191,6 +223,16 @@ server
                 })();
             </script>
             <!-- Matomo End -->`
+            : ''
+        }
+        ${
+          runtimeConfig.PLAUSIBLE_DATA_DOMAIN &&
+          runtimeConfig.PLAUSIBLE_DATA_API &&
+          runtimeConfig.PLAUSIBLE_URL
+            ? `
+            <!-- Plausible Analytics -->
+            <script async defer data-domain="${runtimeConfig.PLAUSIBLE_DATA_DOMAIN}" data-api="${runtimeConfig.PLAUSIBLE_DATA_API}" src="${runtimeConfig.PLAUSIBLE_URL}">
+            </script>`
             : ''
         }
 

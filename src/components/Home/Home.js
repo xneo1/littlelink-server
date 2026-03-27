@@ -36,6 +36,7 @@ import emailLogo from '../../icons/email.svg';
 import emailAltLogo from '../../icons/email_alt.svg';
 import whatsappLogo from '../../icons/whatsapp.svg';
 import stravaLogo from '../../icons/strava.svg';
+import blueSkyLogo from '../../icons/bluesky.svg';
 import buyMeACoffeeLogo from '../../icons/buymeacoffee.svg';
 import gitlabLogo from '../../icons/gitlab.svg';
 import patreonLogo from '../../icons/patreon.svg';
@@ -63,6 +64,8 @@ import streamlabsLogo from '../../icons/streamlabs.svg';
 import privatebinLogo from '../../icons/privatebin.svg';
 import amazonLogo from '../../icons/amazon.svg';
 import applemusicLogo from '../../icons/applemusic.svg';
+import youtubemusicLogo from '../../icons/youtubemusic.svg';
+import venmoLogo from '../../icons/venmo.svg';
 import statusLogo from '../../icons/status.svg';
 import matrixLogo from '../../icons/matrix.svg';
 import anilistLogo from '../../icons/anilist.svg';
@@ -75,6 +78,44 @@ import lineLogo from '../../icons/linemessenger.svg';
 import kakaoLogo from '../../icons/kaokotalk.svg';
 import designByHumansLogo from '../../icons/designbyhumans.svg';
 import dockerhubLogo from '../../icons/docker.svg';
+import veroLogo from '../../icons/vero.svg';
+import myAnimeListLogo from '../../icons/myanimelist.svg';
+import fiveHundredPXLogo from '../../icons/500px.svg';
+import jetphotosLogo from '../../icons/jetphotos.svg';
+import substackLogo from '../../icons/substack.svg';
+import printablesLogo from '../../icons/printables.svg';
+import serializdLogo from '../../icons/serializd.svg';
+import threadsLogo from '../../icons/threads.svg';
+import lemmyLogo from '../../icons/lemmy.svg';
+import pixelfedLogo from '../../icons/pixelfed.svg';
+import vrchatLogo from '../../icons/vrchat.svg';
+import xLogo from '../../icons/x.svg';
+import codewarsLogo from '../../icons/codewars.svg';
+import applePodcastsLogo from '../../icons/apple-podcasts.svg';
+import googlePodcastsLogo from '../../icons/google-podcasts.svg';
+import pocketCastsLogo from '../../icons/pocketcasts.svg';
+import overcastLogo from '../../icons/overcast.svg';
+import rssLogo from '../../icons/generic-rss.svg';
+import audiusLogo from '../../icons/audius.svg';
+import bandcampLogo from '../../icons/bandcamp.svg';
+import forgejoLogo from '../../icons/forgejo.svg';
+import orcidLogo from '../../icons/orcid.svg';
+import credlyLogo from '../../icons/credly.svg';
+import semanticscholarLogo from '../../icons/semanticscholar.svg';
+import googlescholarLogo from '../../icons/googlescholar.svg';
+import simplexLogo from '../../icons/simplex.svg';
+import mixcloudLogo from '../../icons/mixcloud.svg';
+import internetarchiveLogo from '../../icons/internetarchive.svg';
+import googlemapsLogo from '../../icons/googlemaps.svg';
+import tidalLogo from '../../icons/tidal.svg';
+import thestorygraphLogo from '../../icons/storygraph.svg';
+import geocachingLogo from '../../icons/geocaching.svg';
+import neocitiesLogo from '../../icons/neocities.svg';
+import dreamwidthLogo from '../../icons/dreamwidth.svg';
+import spaceheyLogo from '../../icons/spacehey.svg';
+import viberLogo from '../../icons/viber.svg';
+import pillowfortLogo from '../../icons/pillowfort.svg';
+import makerworldLogo from '../../icons/makerworld.svg';
 
 function Home(props) {
   let order = [];
@@ -188,7 +229,6 @@ function Home(props) {
                   order={buttonOrder('GITHUB')}
                 />
               )}
-
               {runtimeConfig.DISCORD && (
                 <Button
                   name="discord"
@@ -406,6 +446,7 @@ function Home(props) {
                 <Button
                   name="mastodon"
                   href={runtimeConfig.MASTODON}
+                  rels="me noopener noreferrer"
                   displayName="Mastodon"
                   logo={mastodonLogo}
                   order={buttonOrder('MASTODON')}
@@ -445,6 +486,15 @@ function Home(props) {
                   displayName="Strava"
                   logo={stravaLogo}
                   order={buttonOrder('STRAVA')}
+                />
+              )}
+              {runtimeConfig.BLUESKY && (
+                <Button
+                  name="bluesky"
+                  href={runtimeConfig.BLUESKY}
+                  displayName="BlueSky"
+                  logo={blueSkyLogo}
+                  order={buttonOrder('BLUESKY')}
                 />
               )}
               {runtimeConfig.BUYMEACOFFEE && (
@@ -690,6 +740,24 @@ function Home(props) {
                   order={buttonOrder('APPLE_MUSIC')}
                 />
               )}
+              {runtimeConfig.YOUTUBE_MUSIC && (
+                <Button
+                  name="youtubemusic"
+                  href={runtimeConfig.YOUTUBE_MUSIC}
+                  displayName="YouTube Music"
+                  logo={youtubemusicLogo}
+                  order={buttonOrder('YOUTUBE_MUSIC')}
+                />
+              )}
+              {runtimeConfig.VENMO && (
+                <Button
+                  name="venmo"
+                  href={runtimeConfig.VENMO}
+                  displayName="Venmo"
+                  logo={venmoLogo}
+                  order={buttonOrder('VENMO')}
+                />
+              )}
               {runtimeConfig.STATUS && (
                 <Button
                   name="status"
@@ -798,6 +866,348 @@ function Home(props) {
                   order={buttonOrder('DOCKERHUB')}
                 />
               )}
+              {runtimeConfig.VERO && (
+                <Button
+                  name="vero"
+                  href={runtimeConfig.VERO}
+                  displayName="VERO"
+                  logo={veroLogo}
+                  order={buttonOrder('VERO')}
+                />
+              )}
+              {runtimeConfig.MYANIMELIST && (
+                <Button
+                  name="myAnimeList"
+                  href={runtimeConfig.MYANIMELIST}
+                  displayName="MyAnimeList"
+                  logo={myAnimeListLogo}
+                  order={buttonOrder('MYANIMELIST')}
+                />
+              )}
+              {runtimeConfig.FIVEHUNDREDPX && (
+                <Button
+                  name="500px"
+                  href={runtimeConfig.FIVEHUNDREDPX}
+                  displayName="500px"
+                  logo={fiveHundredPXLogo}
+                  order={buttonOrder('FIVEHUNDREDPX')}
+                />
+              )}
+              {runtimeConfig.JETPHOTOS && (
+                <Button
+                  name="jetphotos"
+                  href={runtimeConfig.JETPHOTOS}
+                  displayName="JetPhotos"
+                  logo={jetphotosLogo}
+                  order={buttonOrder('JETPHOTOS')}
+                />
+              )}
+              {runtimeConfig.SUBSTACK && (
+                <Button
+                  name="substack"
+                  href={runtimeConfig.SUBSTACK}
+                  displayName="Substack"
+                  logo={substackLogo}
+                  order={buttonOrder('SUBSTACK')}
+                />
+              )}
+              {runtimeConfig.PRINTABLES && (
+                <Button
+                  name="printables"
+                  href={runtimeConfig.PRINTABLES}
+                  displayName="Printables"
+                  logo={printablesLogo}
+                  order={buttonOrder('PRINTABLES')}
+                />
+              )}
+              {runtimeConfig.SERIALIZD && (
+                <Button
+                  name="serializd"
+                  href={runtimeConfig.SERIALIZD}
+                  displayName="Serializd"
+                  logo={serializdLogo}
+                  order={buttonOrder('SERIALIZD')}
+                />
+              )}
+              {runtimeConfig.THREADS && (
+                <Button
+                  name="threads"
+                  href={runtimeConfig.THREADS}
+                  displayName="Threads"
+                  logo={threadsLogo}
+                  order={buttonOrder('THREADS')}
+                />
+              )}
+              {runtimeConfig.LEMMY && (
+                <Button
+                  name="lemmy"
+                  href={runtimeConfig.LEMMY}
+                  displayName="Lemmy"
+                  logo={lemmyLogo}
+                  order={buttonOrder('LEMMY')}
+                />
+              )}
+              {runtimeConfig.PIXELFED && (
+                <Button
+                  name="pixelfed"
+                  href={runtimeConfig.PIXELFED}
+                  displayName="Pixelfed"
+                  logo={pixelfedLogo}
+                  order={buttonOrder('PIXELFED')}
+                />
+              )}
+              {runtimeConfig.VRCHAT && (
+                <Button
+                  name="vrchat"
+                  href={runtimeConfig.VRCHAT}
+                  displayName="VRChat"
+                  logo={vrchatLogo}
+                  order={buttonOrder('VRCHAT')}
+                />
+              )}
+              {runtimeConfig.X && (
+                <Button
+                  name="x"
+                  href={runtimeConfig.X}
+                  displayName=" "
+                  logo={xLogo}
+                  order={buttonOrder('X')}
+                />
+              )}
+              {runtimeConfig.CODEWARS && (
+                <Button
+                  name="codewars"
+                  href={runtimeConfig.CODEWARS}
+                  displayName="Codewars"
+                  logo={codewarsLogo}
+                  order={buttonOrder('CODEWARS')}
+                />
+              )}
+              {runtimeConfig.APPLE_PODCASTS && (
+                <Button
+                  name="apple-podcasts"
+                  href={runtimeConfig.APPLE_PODCASTS}
+                  displayName="Apple Podcasts"
+                  logo={applePodcastsLogo}
+                  order={buttonOrder('APPLE_PODCASTS')}
+                />
+              )}
+              {runtimeConfig.GOOGLE_PODCASTS && (
+                <Button
+                  name="google-podcasts"
+                  href={runtimeConfig.GOOGLE_PODCASTS}
+                  displayName="Google Podcasts"
+                  logo={googlePodcastsLogo}
+                  order={buttonOrder('GOOGLE_PODCASTS')}
+                />
+              )}
+              {runtimeConfig.POCKET_CASTS && (
+                <Button
+                  name="pocket-casts"
+                  href={runtimeConfig.POCKET_CASTS}
+                  displayName="Pocket Casts"
+                  logo={pocketCastsLogo}
+                  order={buttonOrder('POCKET_CASTS')}
+                />
+              )}
+              {runtimeConfig.OVERCAST && (
+                <Button
+                  name="overcast"
+                  href={runtimeConfig.OVERCAST}
+                  displayName="Overcast"
+                  logo={overcastLogo}
+                  order={buttonOrder('OVERCAST')}
+                />
+              )}
+              {runtimeConfig.RSS && (
+                <Button
+                  name="rss"
+                  href={runtimeConfig.RSS}
+                  displayName="RSS"
+                  logo={rssLogo}
+                  order={buttonOrder('RSS')}
+                />
+              )}
+              {runtimeConfig.AUDIUS && (
+                <Button
+                  name="audius"
+                  href={runtimeConfig.AUDIUS}
+                  displayName="Audius"
+                  logo={audiusLogo}
+                  order={buttonOrder('AUDIUS')}
+                />
+              )}
+              {runtimeConfig.BANDCAMP && (
+                <Button
+                  name="bandcamp"
+                  href={runtimeConfig.BANDCAMP}
+                  displayName="Bandcamp"
+                  logo={bandcampLogo}
+                  order={buttonOrder('BANDCAMP')}
+                />
+              )}
+              {runtimeConfig.FORGEJO && (
+                <Button
+                  name="forgejo"
+                  href={runtimeConfig.FORGEJO}
+                  displayName="Forgejo"
+                  logo={forgejoLogo}
+                  order={buttonOrder('FORGEJO')}
+                />
+              )}
+              {runtimeConfig.ORCID && (
+                <Button
+                  name="orcid"
+                  href={runtimeConfig.ORCID}
+                  displayName="ORCID"
+                  logo={orcidLogo}
+                  order={buttonOrder('ORCID')}
+                />
+              )}
+              {runtimeConfig.CREDLY && (
+                <Button
+                  name="credly"
+                  href={runtimeConfig.CREDLY}
+                  displayName="Credly"
+                  logo={credlyLogo}
+                  order={buttonOrder('CREDLY')}
+                />
+              )}
+              {runtimeConfig.SEMANTICSCHOLAR && (
+                <Button
+                  name="semanticscholar"
+                  href={runtimeConfig.SEMANTICSCHOLAR}
+                  displayName="Semantic Scholar"
+                  logo={semanticscholarLogo}
+                  order={buttonOrder('SEMANTICSCHOLAR')}
+                />
+              )}
+              {runtimeConfig.GOOGLESCHOLAR && (
+                <Button
+                  name="googlescholar"
+                  href={runtimeConfig.GOOGLESCHOLAR}
+                  displayName="Google Scholar"
+                  logo={googlescholarLogo}
+                  order={buttonOrder('GOOGLESCHOLAR')}
+                />
+              )}
+              {runtimeConfig.SIMPLEX && (
+                <Button
+                  name="simplex"
+                  href={runtimeConfig.SIMPLEX}
+                  displayName="Simplex"
+                  logo={simplexLogo}
+                  order={buttonOrder('SIMPLEX')}
+                />
+              )}
+              {runtimeConfig.MIXCLOUD && (
+                <Button
+                  name="mixcloud"
+                  href={runtimeConfig.MIXCLOUD}
+                  displayName="MIXCLOUD"
+                  logo={mixcloudLogo}
+                  order={buttonOrder('MIXCLOUD')}
+                />
+              )}
+              {runtimeConfig.INTERNETARCHIVE && (
+                <Button
+                  name="internetarchive"
+                  href={runtimeConfig.INTERNETARCHIVE}
+                  displayName="Internet Archive"
+                  logo={internetarchiveLogo}
+                  order={buttonOrder('INTERNETARCHIVE')}
+                />
+              )}
+              {runtimeConfig.GOOGLEMAPS && (
+                <Button
+                  name="googlemaps"
+                  href={runtimeConfig.GOOGLEMAPS}
+                  displayName="Google Maps"
+                  logo={googlemapsLogo}
+                  order={buttonOrder('GOOGLEMAPS')}
+                />
+              )}
+              {runtimeConfig.TIDAL && (
+                <Button
+                  name="tidal"
+                  href={runtimeConfig.TIDAL}
+                  displayName="Tidal"
+                  logo={tidalLogo}
+                  order={buttonOrder('TIDAL')}
+                />
+              )}
+              {runtimeConfig.THESTORYGRAPH && (
+                <Button
+                  name="thestorygraph"
+                  href={runtimeConfig.THESTORYGRAPH}
+                  displayName="The StoryGraph"
+                  logo={thestorygraphLogo}
+                  order={buttonOrder('THESTORYGRAPH')}
+                />
+              )}
+              {runtimeConfig.GEOCACHING && (
+                <Button
+                  name="geocaching"
+                  href={runtimeConfig.GEOCACHING}
+                  displayName="GEOCACHING"
+                  logo={geocachingLogo}
+                  order={buttonOrder('GEOCACHING')}
+                />
+              )}
+              {runtimeConfig.NEOCITIES && (
+                <Button
+                  name="neocities"
+                  href={runtimeConfig.NEOCITIES}
+                  displayName="neocities"
+                  logo={neocitiesLogo}
+                  order={buttonOrder('NEOCITIES')}
+                />
+              )}
+              {runtimeConfig.DREAMWIDTH && (
+                <Button
+                  name="dreamwidth"
+                  href={runtimeConfig.DREAMWIDTH}
+                  displayName="dreamWIDTH"
+                  logo={dreamwidthLogo}
+                  order={buttonOrder('DREAMWIDTH')}
+                />
+              )}
+              {runtimeConfig.SPACEHEY && (
+                <Button
+                  name="spacehey"
+                  href={runtimeConfig.SPACEHEY}
+                  displayName="spacehey"
+                  logo={spaceheyLogo}
+                  order={buttonOrder('SPACEHEY')}
+                />
+              )}
+              {runtimeConfig.VIBER && (
+                <Button
+                  name="viber"
+                  href={runtimeConfig.VIBER}
+                  displayName="Viber"
+                  logo={viberLogo}
+                  order={buttonOrder('VIBER')}
+                />
+              )}
+              {runtimeConfig.PILLOWFORT && (
+                <Button
+                  name="pillowfort"
+                  href={runtimeConfig.PILLOWFORT}
+                  displayName="Pillowfort"
+                  logo={pillowfortLogo}
+                  order={buttonOrder('PILLOWFORT')}
+                />
+              )}
+              {runtimeConfig.MAKERWORLD && (
+                <Button
+                  name="makerworld"
+                  href={runtimeConfig.MAKERWORLD}
+                  displayName="Makerworld"
+                  logo={makerworldLogo}
+                  order={buttonOrder('MAKERWORLD')}
+                />
+              )}
             </Sort>
             <div>
               <p className="footer">
@@ -805,11 +1215,14 @@ function Home(props) {
                 {runtimeConfig.SHARE &&
                   runtimeConfig.OG_TITLE &&
                   runtimeConfig.OG_DESCRIPTION && (
-                    <Share
-                      url={runtimeConfig.SHARE}
-                      title={runtimeConfig.OG_TITLE}
-                      text={runtimeConfig.OG_DESCRIPTION}
-                    />
+                    <>
+                      <br />
+                      <Share
+                        url={runtimeConfig.SHARE}
+                        title={runtimeConfig.OG_TITLE}
+                        text={runtimeConfig.OG_DESCRIPTION}
+                      />
+                    </>
                   )}
               </p>
             </div>

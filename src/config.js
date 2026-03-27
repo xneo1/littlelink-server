@@ -16,6 +16,7 @@ export const runtimeConfig =
         THEME: window?.env?.THEME,
         FAVICON_URL: window?.env?.FAVICON_URL,
         AVATAR_URL: window?.env?.AVATAR_URL,
+        AVATAR_SIZE: window?.env?.AVATAR_SIZE,
         AVATAR_ALT: window?.env?.AVATAR_ALT,
         AVATAR_2X_URL: window?.env?.AVATAR_2X_URL,
         NAME: window?.env?.NAME,
@@ -56,11 +57,13 @@ export const runtimeConfig =
         FOOTER: window?.env?.FOOTER,
         WHATSAPP: window?.env?.WHATSAPP,
         STRAVA: window?.env?.STRAVA,
+        BLUESKY: window?.env?.BLUESKY,
         BUYMEACOFFEE: window?.env?.BUYMEACOFFEE,
         GITLAB: window?.env?.GITLAB,
         PATREON: window?.env?.PATREON,
         DEVTO: window?.env?.DEVTO,
         UMAMI_APP_URL: window?.env?.UMAMI_APP_URL,
+        UMAMI_SCRIPT_NAME: window?.env?.UMAMI_SCRIPT_NAME,
         BUTTON_ORDER: window?.env?.BUTTON_ORDER,
         PAYPAL: window?.env?.PAYPAL,
         SLACK: window?.env?.SLACK,
@@ -86,6 +89,8 @@ export const runtimeConfig =
         OG_IMAGE: window?.env?.OG_IMAGE,
         OG_IMAGE_WIDTH: window?.env?.OG_IMAGE_WIDTH,
         OG_IMAGE_HEIGHT: window?.env?.OG_IMAGE_HEIGHT,
+        TWITTER_TITLE: window?.env?.TWITTER_TITLE,
+        TWITTER_DESCRIPTION: window?.env?.TWITTER_DESCRIPTION,
         TWITTER_CARD: window?.env?.TWITTER_CARD,
         TWITTER_IMAGE: window?.env?.TWITTER_IMAGE,
         TWITTER_SITE: window?.env?.TWITTER_SITE,
@@ -104,6 +109,8 @@ export const runtimeConfig =
         AMAZON_AFFILIATE: window?.env?.AMAZON_AFFILIATE,
         AMAZON_WISHLIST: window?.env?.AMAZON_WISHLIST,
         APPLE_MUSIC: window?.env?.APPLE_MUSIC,
+        YOUTUBE_MUSIC: window?.env?.YOUTUBE_MUSIC,
+        VENMO: window?.env?.VENMO,
         STATUS: window?.env?.STATUS,
         MATRIX: window?.env?.MATRIX,
         ANILIST: window?.env?.ANILIST,
@@ -115,10 +122,53 @@ export const runtimeConfig =
         LINE: window?.env?.LINE,
         KAKAOTALK: window?.env?.KAKAOTALK,
         DESIGNBYHUMANS: window?.env?.DESIGNBYHUMANS,
+        VERO: window?.env?.VERO,
         DOCKERHUB: window?.env?.DOCKERHUB,
+        MYANIMELIST: window?.env?.MYANIMELIST,
         MATOMO_URL: window?.env?.MATOMO_URL,
         MATOMO_SITE_ID: window?.env?.MATOMO_SITE_ID,
+        PLAUSIBLE_URL: window?.env?.PLAUSIBLE_URL,
+        PLAUSIBLE_DATA_API: window?.env?.PLAUSIBLE_DATA_API,
+        PLAUSIBLE_DATA_DOMAIN: window?.env?.PLAUSIBLE_DATA_DOMAIN,
         SHARE: window?.env?.SHARE,
+        DROP_SHADOW: window?.env?.DROP_SHADOW,
+        FIVEHUNDREDPX: window?.env?.FIVEHUNDREDPX,
+        JETPHOTOS: window?.env?.JETPHOTOS,
+        THEME_OS: window?.env?.THEME_OS,
+        SUBSTACK: window?.env?.SUBSTACK,
+        PRINTABLES: window?.env?.PRINTABLES,
+        SERIALIZD: window?.env?.SERIALIZD,
+        THREADS: window?.env?.THREADS,
+        LEMMY: window?.env?.LEMMY,
+        PIXELFED: window?.env?.PIXELFED,
+        VRCHAT: window?.env?.VRCHAT,
+        X: window?.env?.X,
+        CODEWARS: window?.env?.CODEWARS,
+        APPLE_PODCASTS: window?.env?.APPLE_PODCASTS,
+        GOOGLE_PODCASTS: window?.env?.GOOGLE_PODCASTS,
+        POCKET_CASTS: window?.env?.POCKET_CASTS,
+        OVERCAST: window?.env?.OVERCAST,
+        RSS: window?.env?.RSS,
+        AUDIUS: window?.env?.AUDIUS,
+        BANDCAMP: window?.env?.BANDCAMP,
+        FORGEJO: window?.env?.FORGEJO,
+        ORCID: window?.env?.ORCID,
+        CREDLY: window?.env?.CREDLY,
+        SEMANTICSCHOLAR: window?.env?.SEMANTICSCHOLAR,
+        GOOGLESCHOLAR: window?.env?.GOOGLESCHOLAR,
+        SIMPLEX: window?.env?.SIMPLEX,
+        MIXCLOUD: window?.env?.MIXCLOUD,
+        INTERNETARCHIVE: window?.env?.INTERNETARCHIVE,
+        GOOGLEMAPS: window?.env?.GOOGLEMAPS,
+        TIDAL: window?.env?.TIDAL,
+        THESTORYGRAPH: window?.env?.THESTORYGRAPH,
+        GEOCACHING: window?.env?.GEOCACHING,
+        NEOCITIES: window?.env?.NEOCITIES,
+        DREAMWIDTH: window?.env?.DREAMWIDTH,
+        SPACEHEY: window?.env?.SPACEHEY,
+        VIBER: window?.env?.VIBER,
+        PILLOWFORT: window?.env?.PILLOWFORT,
+        MAKERWORLD: window?.env?.MAKERWORLD,
       }
     : {
         // server
@@ -154,6 +204,9 @@ export const runtimeConfig =
         AVATAR_URL: nodeIsProduction
           ? process.env.AVATAR_URL
           : process.env.RAZZLE_AVATAR_URL,
+        AVATAR_SIZE: nodeIsProduction
+          ? process.env.AVATAR_SIZE
+          : process.env.RAZZLE_AVATAR_SIZE,
         AVATAR_ALT: nodeIsProduction
           ? process.env.AVATAR_ALT
           : process.env.RAZZLE_AVATAR_ALT,
@@ -258,6 +311,9 @@ export const runtimeConfig =
         STRAVA: nodeIsProduction
           ? process.env.STRAVA
           : process.env.RAZZLE_STRAVA,
+        BLUESKY: nodeIsProduction
+          ? process.env.BLUESKY
+          : process.env.RAZZLE_BLUESKY,
         BUYMEACOFFEE: nodeIsProduction
           ? process.env.BUYMEACOFFEE
           : process.env.RAZZLE_BUYMEACOFFEE,
@@ -271,6 +327,9 @@ export const runtimeConfig =
         UMAMI_APP_URL: nodeIsProduction
           ? process.env.UMAMI_APP_URL
           : process.env.RAZZLE_UMAMI_APP_URL,
+        UMAMI_SCRIPT_NAME: nodeIsProduction
+          ? process.env.UMAMI_SCRIPT_NAME
+          : process.env.RAZZLE_UMAMI_SCRIPT_NAME,
         BUTTON_ORDER: nodeIsProduction
           ? process.env.BUTTON_ORDER
           : process.env.RAZZLE_BUTTON_ORDER,
@@ -342,6 +401,12 @@ export const runtimeConfig =
         OG_IMAGE_HEIGHT: nodeIsProduction
           ? process.env.OG_IMAGE_HEIGHT
           : process.env.RAZZLE_OG_IMAGE_HEIGHT,
+        TWITTER_TITLE: nodeIsProduction
+          ? process.env.TWITTER_TITLE
+          : process.env.RAZZLE_TWITTER_TITLE,
+        TWITTER_DESCRIPTION: nodeIsProduction
+          ? process.env.TWITTER_DESCRIPTION
+          : process.env.RAZZLE_TWITTER_DESCRIPTION,
         TWITTER_CARD: nodeIsProduction
           ? process.env.TWITTER_CARD
           : process.env.RAZZLE_TWITTER_CARD,
@@ -390,6 +455,10 @@ export const runtimeConfig =
         APPLE_MUSIC: nodeIsProduction
           ? process.env.APPLE_MUSIC
           : process.env.RAZZLE_APPLE_MUSIC,
+        YOUTUBE_MUSIC: nodeIsProduction
+          ? process.env.YOUTUBE_MUSIC
+          : process.env.RAZZLE_YOUTUBE_MUSIC,
+        VENMO: nodeIsProduction ? process.env.VENMO : process.env.RAZZLE_VENMO,
         STATUS: nodeIsProduction
           ? process.env.STATUS
           : process.env.RAZZLE_STATUS,
@@ -417,14 +486,129 @@ export const runtimeConfig =
         DESIGNBYHUMANS: nodeIsProduction
           ? process.env.DESIGNBYHUMANS
           : process.env.RAZZLE_DESIGNBYHUMANS,
+        VERO: nodeIsProduction ? process.env.VERO : process.env.RAZZLE_VERO,
         DOCKERHUB: nodeIsProduction
           ? process.env.DOCKERHUB
           : process.env.RAZZLE_DOCKERHUB,
+        MYANIMELIST: nodeIsProduction
+          ? process.env.MYANIMELIST
+          : process.env.RAZZLE_MYANIMELIST,
         MATOMO_URL: nodeIsProduction
           ? process.env.MATOMO_URL
           : process.env.RAZZLE_MATOMO_URL,
         MATOMO_SITE_ID: nodeIsProduction
           ? process.env.MATOMO_SITE_ID
           : process.env.RAZZLE_MATOMO_SITE_ID,
+        PLAUSIBLE_URL: nodeIsProduction
+          ? process.env.PLAUSIBLE_URL
+          : process.env.RAZZLE_PLAUSIBLE_URL,
+        PLAUSIBLE_DATA_API: nodeIsProduction
+          ? process.env.PLAUSIBLE_DATA_API
+          : process.env.RAZZLE_PLAUSIBLE_DATA_API,
+        PLAUSIBLE_DATA_DOMAIN: nodeIsProduction
+          ? process.env.PLAUSIBLE_DATA_DOMAIN
+          : process.env.RAZZLE_PLAUSIBLE_DATA_DOMAIN,
         SHARE: nodeIsProduction ? process.env.SHARE : process.env.RAZZLE_SHARE,
+        DROP_SHADOW: nodeIsProduction
+          ? process.env.DROP_SHADOW
+          : process.env.RAZZLE_DROP_SHADOW,
+        FIVEHUNDREDPX: nodeIsProduction
+          ? process.env.FIVEHUNDREDPX
+          : process.env.RAZZLE_FIVEHUNDREDPX,
+        JETPHOTOS: nodeIsProduction
+          ? process.env.JETPHOTOS
+          : process.env.RAZZLE_JETPHOTOS,
+        THEME_OS: nodeIsProduction
+          ? process.env.THEME_OS
+          : process.env.RAZZLE_THEME_OS,
+        SUBSTACK: nodeIsProduction
+          ? process.env.SUBSTACK
+          : process.env.RAZZLE_SUBSTACK,
+        PRINTABLES: nodeIsProduction
+          ? process.env.PRINTABLES
+          : process.env.RAZZLE_PRINTABLES,
+        SERIALIZD: nodeIsProduction
+          ? process.env.SERIALIZD
+          : process.env.RAZZLE_SERIALIZD,
+        THREADS: nodeIsProduction
+          ? process.env.THREADS
+          : process.env.RAZZLE_THREADS,
+        LEMMY: nodeIsProduction ? process.env.LEMMY : process.env.RAZZLE_LEMMY,
+        PIXELFED: nodeIsProduction
+          ? process.env.PIXELFED
+          : process.env.RAZZLE_PIXELFED,
+        VRCHAT: nodeIsProduction
+          ? process.env.VRCHAT
+          : process.env.RAZZLE_VRCHAT,
+        X: nodeIsProduction ? process.env.X : process.env.RAZZLE_X,
+        CODEWARS: nodeIsProduction
+          ? process.env.CODEWARS
+          : process.env.RAZZLE_CODEWARS,
+        APPLE_PODCASTS: nodeIsProduction
+          ? process.env.APPLE_PODCASTS
+          : process.env.RAZZLE_APPLE_PODCASTS,
+        GOOGLE_PODCASTS: nodeIsProduction
+          ? process.env.GOOGLE_PODCASTS
+          : process.env.RAZZLE_GOOGLE_PODCASTS,
+        POCKET_CASTS: nodeIsProduction
+          ? process.env.POCKET_CASTS
+          : process.env.RAZZLE_POCKET_CASTS,
+        OVERCAST: nodeIsProduction
+          ? process.env.OVERCAST
+          : process.env.RAZZLE_OVERCAST,
+        RSS: nodeIsProduction ? process.env.RSS : process.env.RAZZLE_RSS,
+        AUDIUS: nodeIsProduction
+          ? process.env.AUDIUS
+          : process.env.RAZZLE_AUDIUS,
+        BANDCAMP: nodeIsProduction
+          ? process.env.BANDCAMP
+          : process.env.RAZZLE_BANDCAMP,
+        FORGEJO: nodeIsProduction
+          ? process.env.FORGEJO
+          : process.env.RAZZLE_FORGEJO,
+        ORCID: nodeIsProduction ? process.env.ORCID : process.env.RAZZLE_ORCID,
+        CREDLY: nodeIsProduction
+          ? process.env.CREDLY
+          : process.env.RAZZLE_CREDLY,
+        SEMANTICSCHOLAR: nodeIsProduction
+          ? process.env.SEMANTICSCHOLAR
+          : process.env.RAZZLE_SEMANTICSCHOLAR,
+        GOOGLESCHOLAR: nodeIsProduction
+          ? process.env.GOOGLESCHOLAR
+          : process.env.RAZZLE_GOOGLESCHOLAR,
+        SIMPLEX: nodeIsProduction
+          ? process.env.SIMPLEX
+          : process.env.RAZZLE_SIMPLEX,
+        MIXCLOUD: nodeIsProduction
+          ? process.env.MIXCLOUD
+          : process.env.RAZZLE_MIXCLOUD,
+        INTERNETARCHIVE: nodeIsProduction
+          ? process.env.INTERNETARCHIVE
+          : process.env.RAZZLE_INTERNETARCHIVE,
+        GOOGLEMAPS: nodeIsProduction
+          ? process.env.GOOGLEMAPS
+          : process.env.RAZZLE_GOOGLEMAPS,
+        TIDAL: nodeIsProduction ? process.env.TIDAL : process.env.RAZZLE_TIDAL,
+        THESTORYGRAPH: nodeIsProduction
+          ? process.env.THESTORYGRAPH
+          : process.env.RAZZLE_THESTORYGRAPH,
+        GEOCACHING: nodeIsProduction
+          ? process.env.GEOCACHING
+          : process.env.RAZZLE_GEOCACHING,
+        NEOCITIES: nodeIsProduction
+          ? process.env.NEOCITIES
+          : process.env.RAZZLE_NEOCITIES,
+        DREAMWIDTH: nodeIsProduction
+          ? process.env.DREAMWIDTH
+          : process.env.RAZZLE_DREAMWIDTH,
+        SPACEHEY: nodeIsProduction
+          ? process.env.SPACEHEY
+          : process.env.RAZZLE_SPACEHEY,
+        VIBER: nodeIsProduction ? process.env.VIBER : process.env.RAZZLE_VIBER,
+        PILLOWFORT: nodeIsProduction
+          ? process.env.PILLOWFORT
+          : process.env.RAZZLE_PILLOWFORT,
+        MAKERWORLD: nodeIsProduction
+          ? process.env.MAKERWORLD
+          : process.env.RAZZLE_MAKERWORLD,
       };
